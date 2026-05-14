@@ -281,3 +281,8 @@ function showToast(msg) {
   document.querySelectorAll('.overlay').forEach(ov=>ov.addEventListener('click',e=>{ if(e.target===ov) ov.classList.remove('open'); }));
   renderDashboard();
 })();
+
+function toggleSidebar(){
+  const sidebar = document.getElementById('sidebar');
+  sidebar.classList.toggle('open');
+}

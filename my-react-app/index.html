@@ -12,6 +12,9 @@
 
   <!-- SIDEBAR -->
   <aside class="sidebar" id="sidebar">
+    <button class="close-sidebar" onclick="toggleSidebar()">
+✕
+</button>
     <div class="brand">
       <div class="brand-icon">
         <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="#fff" stroke-width="2.5"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
@@ -56,7 +59,12 @@
   <!-- MAIN -->
   <div class="main">
     <div class="topbar">
-      <div class="topbar-date" id="top-date"></div>
+
+  <button class="menu-btn" onclick="toggleSidebar()">
+    ☰
+  </button>
+
+  <div class="topbar-date" id="top-date"></div>
       <div class="topbar-right">
         <button class="notif-btn">
           <svg width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
@@ -248,5 +256,6 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
 <script src="script.js"></script>
+<script type="module" src="/src/main.jsx"></script>
 </body>
 </html>
