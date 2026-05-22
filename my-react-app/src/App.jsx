@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import './style.css';
 
-// 1. DADOS INICIAIS (O seu antigo objeto 'S')
+
 const INITIAL_CATEGORIES = [
   { id:1, name:'Moradia',     emoji:'🏠', color:'#8B5CF6', type:'expense' },
   { id:2, name:'Alimentação', emoji:'🍔', color:'#F97316', type:'expense' },
@@ -36,7 +36,7 @@ const fmt = n => 'R$ ' + Math.abs(n).toLocaleString('pt-BR', { minimumFractionDi
 const sumAmt = (arr, type) => arr.filter(t=>t.type===type).reduce((a,b)=>a+b.amount,0);
 
 function App() {
-  // 2. ESTADOS DO SISTEMA
+  // ESTADOS DO SISTEMA
   const [activePage, setActivePage] = useState('dashboard');
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [transactions, setTransactions] = useState(INITIAL_TRANSACTIONS);
@@ -80,7 +80,7 @@ function App() {
     return d.getMonth()===m && d.getFullYear()===y; 
   });
 
-  // 3. LÓGICA DE DADOS COMPUTADOS (Dashboard)
+  // LÓGICA DE DADOS COMPUTADOS (Dashboard)
   const totalInc = sumAmt(transactions, 'income');
   const totalExp = sumAmt(transactions, 'expense');
   const bal = totalInc - totalExp;
@@ -99,7 +99,7 @@ function App() {
   const expRep = sumAmt(txRepM, 'expense');
   const balRep = incRep - expRep;
 
-  // 4. AÇÕES
+  // AÇÕES
   const showToast = (msg) => {
     setToast({ show: true, msg });
     setTimeout(() => setToast({ show: false, msg: '' }), 2800);
@@ -131,7 +131,7 @@ function App() {
     showToast('✅ Categoria criada!');
   };
 
-  // 5. EFEITOS (GRÁFICOS)
+  // EFEITOS 
   useEffect(() => {
     if (!window.Chart) return;
     let instances = [];
@@ -211,7 +211,7 @@ function App() {
   }, [activePage, transactions, categories, repMonth, repYear]);
 
 
-  // 6. RENDERIZAÇÃO
+  // RENDERIZAÇÃO
   return (
     <>
       <div className="app">
